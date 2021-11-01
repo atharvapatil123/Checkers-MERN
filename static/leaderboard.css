@@ -5,9 +5,11 @@ table {
   margin-top: 50px;
   border-collapse: collapse;
   width: 100%;
+  max-height: 150px;
+  border: 2px solid black;
 }
 
-table tbody td,
+table tbody tr td,
 table thead th {
   border: 1px solid #ddd;
   padding: 8px;

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Checkers</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+      crossorigin="anonymous"
+    />
+    <!-- <link href="index.css" /> -->
+    <link rel="stylesheet" href="about.css" />
+  </head>
+  <body>
+    <div class="about-section">
+      <h2>Basics</h2>
+      <p>
+        Checkers is a board game played between two players on an 8-by-8
+        checkered board
+      </p>
+      <p>
+        Each player has 12 pieces that are placed on every other dark square as
+        shown below.
+      </p>
+      <img src="images/5.png" width="380" height="260" />
+
+      <!-- <p>Resize the browser window to see that this page is responsive by the way.</p> -->
+    </div>
+
+    <div class="col"><h2 id="rules-section">Rules</h2></div>
+    <div class="rules-row">
+      <div class="col" style="margin: 15px auto">
+        <h2>Check out this video to understand Checkers!</h2>
+      </div>
+      <div class="col" style="margin: 15px auto">
+        <iframe
+          width="420"
+          height="315"
+          src="https://www.youtube.com/embed/ScKIdStgAfU?autoplay=1&mute=1"
+        >
+        </iframe>
+      </div>
+      <div class="col">
+        <div class="item1">
+          <h3>Actions</h3>
+          <p>
+            Each player takes their turn by moving a piece. Pieces always move
+            forwards diagonally to the next dark square.
+          </p>
+          <p>
+            If a player's piece is in front of an opponent piece and there
+            exists a vacant dark square immediately behind the opponent piece,
+            the player must capture the piece and then move to the vacant dark
+            square. The player can perform this action with the same piece
+            multiple times if the opponent's pieces are lined up in the forward
+            direction.
+          </p>
+          <p>
+            If an opponent's piece is available to be captured, the player must
+            capture the piece.
+          </p>
+        </div>
+        <div class="item2">
+          <img
+            src="images/4.png"
+            style="text-align: center"
+            width="400"
+            height="250"
+            class="rules-images"
+          />
+        </div>
+      </div>
+
+      <br />
+      <div class="col">
+        <div class="item1">
+          <h3>King Row</h3>
+          <p>
+            The row that is closest to each player is their king row. If a
+            player's piece enters their opponent's king row, that piece becomes
+            a king. In order to differentiate between kings and other pieces,
+            one piece is placed upon the king piece.
+          </p>
+          <p>
+            Once a piece has been kinged, the player must wait until the next
+            turn to move their king piece out of king row. Kings, unlike normal
+            pieces, can move in both directions (forwards as well as backwards).
+          </p>
+          <h3>Winning</h3>
+          <p class="last-para">
+            You win the game when the opponent has no more pieces or can't move
+            (even if they still has pieces). If neither of the players can
+            move/wish to move, the players can agree to a draw
+          </p>
+          <br />
+        </div>
+        <div class="item2">
+          <img
+            src="images/8.png"
+            style="text-align: center"
+            width="410"
+            height="250"
+            class="rules-images"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="index.js"
+    ></script>
+  </body>
+</html>

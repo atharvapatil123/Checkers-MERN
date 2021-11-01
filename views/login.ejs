@@ -1,0 +1,46 @@
+  <div class="row mx-auto" style="margin-top:180px; margin-right:50px; width:65%;">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3" style="color: purple;
+        font-size: 33px;">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </h1>
+        <%- include ("./partials/messages"); %>
+        <form action="/users/login" method="POST" style="padding: 10px">
+          <div class="form-group"style="margin: 5px">
+            <label for="email" style="margin: 5px">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="Enter Email"
+            />
+          </div>
+          <div class="form-group" style="margin: 5px">
+            <label for="password" style="margin: 5px">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              placeholder="Enter Password"
+            />
+          </div>
+          <div style="display: flex; justify-content: center">
+            <button type="submit" class="btn btn-primary btn-block" style="
+            background-color: purple;
+            width: 80%;
+            margin-bottom: 0px;
+            margin: 10px auto;
+          ">Login</button>
+          </div>
+        </form>
+        <p class="lead mt-4" style="font-size: medium; margin-top: 0px !important; margin-left: 20px; font-weight: 300;">
+          No Account? <a href="/users/register" style="color: purple;">Register</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- <img src="" alt="" /> -->
+</div>

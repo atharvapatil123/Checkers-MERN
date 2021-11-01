@@ -11,12 +11,14 @@ table tbody td,
 table thead th {
   border: 1px solid #ddd;
   padding: 8px;
+  height: 50px;
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
 }
 
 table thead tr th {
+  height: 50px;
   background-color: #8304aa !important;
   color: white !important;
 }

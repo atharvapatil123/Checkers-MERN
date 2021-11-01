@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://bootswatch.com/5/journal/bootstrap.min.css"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <title>Checkers</title>
     <!-- <link rel="stylesheet" href="layout.css"> -->
     </head>
@@ -21,7 +22,9 @@ background-attachment: fixed;
 background-repeat: no-repeat;
 background-position: top left;
         }
-        
+        .nav-link{
+          font-family: 'Source Sans Pro', sans-serif !important;
+        }
       </style>
     <div><%- body %></div>
     </body>
@@ -53,17 +56,18 @@ background-position: top left;
                 aria-current="page"
                 href="/dashboard"
                 id="home"
+                style="font-family: 'Source Sans Pro', sans-serif !important;"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/about" id="about">About</a>
+              <a class="nav-link" href="/about" id="about"  style="font-family: 'Source Sans Pro', sans-serif !important;">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/rules" id="rules">Rules</a>
+              <a class="nav-link" href="/rules" id="rules"  style="font-family: 'Source Sans Pro', sans-serif !important;">Rules</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/leaderboard" id="leaderboard">Leaderboard</a>
+              <a class="nav-link" href="/leaderboard" id="leaderboard"  style="font-family: 'Source Sans Pro', sans-serif !important;">Leaderboard</a>
             </li>
           </ul>
           <%if(log){%>
@@ -83,5 +87,7 @@ background-position: top left;
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="dark.js"></script>
   </body>
 </html>

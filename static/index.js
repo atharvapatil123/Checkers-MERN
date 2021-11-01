@@ -1,6 +1,5 @@
 // /*=========variabile globale=========================*/
 
-
 // var square_class = document.getElementsByClassName("square");
 // var white_checker_class = document.getElementsByClassName("white_checker");
 // var black_checker_class = document.getElementsByClassName("black_checker");
@@ -34,6 +33,9 @@
 // var anotherMove;
 // var mustAttack = false;
 // var multiplier = 1; // 2 daca face saritura 1 in caz contrat
+
+// DARK MODE
+
 
 home = document.getElementById("home");
 about = document.getElementById("about");
@@ -296,7 +298,7 @@ if (window.location.href === home.href) {
 // function showMoves(piece) {
 //   /* daca a fost selectat inainte o piesa stergem drumurile ei actualizand nu drumurile  Game made by Cojocaru Calin George all rights reserved piesei noi s
 // 	electat
-  
+
 // 	*/
 
 //   var match = false;

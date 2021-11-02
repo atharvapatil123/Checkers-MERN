@@ -91,7 +91,7 @@ let blackPieces = [
 let stackMoves = [];
 
 // program variables
-const WIDTH = 600;
+const WIDTH = 580;
 const SQUARE_WIDTH = WIDTH/8;
 let performingMove = false; // whether a move animation is taking place
 let selectX = -1; // x position of last selected square

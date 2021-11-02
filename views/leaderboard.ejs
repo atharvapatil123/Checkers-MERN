@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="leaderboard.css" />
   </head>
   <body>
+    <!-- <style>
+      .rowfont{
+        color: black;
+      }
+    </style> -->
     <div class="about-section">
       <h2>Leaderboard</h2>
     </div>
@@ -29,9 +34,10 @@
         <tbody>
           <% if(data.length){ for(var i = 0; i< data.length; i++) {%>
           <tr>
-            <td><%= (i+1) %></td>
-            <td><%= data[i].name%></td>
-            <td><%= data[i].score%></td>
+            <!-- style="color: #8304aa;" -->
+            <td class="rowfont"><%= (i+1) %></td>
+            <td class="rowfont" ><%= data[i].name%></td>
+            <td class="rowfont"><%= data[i].score%></td>
           </tr>
           <% } }else{ %>
           <tr>

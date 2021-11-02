@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="about.css" />
   </head>
   <body>
-    <div class="about-section">
+    <div style="isolation:isolate;" class="about-section">
       <h2>Basics</h2>
       <p>
         Checkers is a board game played between two players on an 8-by-8
@@ -32,8 +32,8 @@
       <div class="col" style="margin: 15px auto">
         <h2>Check out this video to understand Checkers!</h2>
       </div>
-      <div class="col" style="margin: 15px auto">
-        <iframe
+      <div class="col" style="margin: 15px auto; isolation:isolate; border: 1px solid white;">
+        <iframe 
           width="800"
           height="450"
           src="https://www.youtube.com/embed/ScKIdStgAfU?autoplay=1&mute=1"

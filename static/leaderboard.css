@@ -2,6 +2,7 @@
   margin-top: 15px;
 }
 table {
+  
   margin-top: 50px;
   border-collapse: collapse;
   width: 100%;
@@ -24,11 +25,11 @@ table thead tr th {
   background-color: #8304aa !important;
   color: white !important;
 }
-table tr:nth-child(even) {
+/* table tr:nth-child(even) {
   background-color: #f2f2f2;
-}
+} */
 
 table tr:hover {
-  background-color: #474e5d;
+  background-color: #9ba9c7;
   color: #ffffff;
 }

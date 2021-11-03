@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
+const { ensureAuthenticated } = require("../config/auth");
 
 // User module
 const User = require("../models/User");
@@ -9,12 +10,14 @@ const User = require("../models/User");
 router.get("/login", (req, res) =>
   res.render("login", {
     log: false,
+    dash: req.isDashed,
   })
 );
 
 router.get("/register", (req, res) =>
   res.render("register", {
     log: false,
+    dash: req.isDashed,
   })
 );
 
@@ -35,9 +38,17 @@ router.post("/register", (req, res) => {
   }
 
   // Check pass length
-  if (password.length < 6) {
-    errors.push({ msg: "Password should be atleast 6 characters long" });
-  }
+  // if (password.length < 6) {
+  //   errors.push({ msg: "Password should be atleast 6 characters long" });
+  // }
+  // if (
+  //   password !=
+  //   "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|]).{8,32}$"
+  // ) {
+  //   errors.push({
+  //     msg: "Password must contain Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character",
+  //   });
+  // }
 
   if (errors.length > 0) {
     res.render("register", {
@@ -46,10 +57,13 @@ router.post("/register", (req, res) => {
       email,
       password,
       password2,
+      log: false,
+      dash: req.isDashed,
     });
   } else {
     // Validation Passed!
-    User.findOne({ email: email }).then((user) => {                                                                                                                                                                                                                                         `                       `
+    User.findOne({ email: email }).then((user) => {
+      `                       `;
       if (user) {
         //User exits
         errors.push({ msg: "Email is already registered" });
@@ -59,6 +73,8 @@ router.post("/register", (req, res) => {
           email,
           password,
           password2,
+          log: false,
+          dash: req.isDashed,
         });
       } else {
         //   res.render("welcome")
@@ -106,8 +122,10 @@ router.post("/login", (req, res, next) => {
 router.get("/logout", (req, res) => {
   req.logout(); //Using passport middleware
   req.flash("success_msg", "You are successfully logged out");
-  res.redirect("/users/login");
+  res.redirect("/users/login", {
+    log: false,
+    dash: req.isDashed,
+  });
 });
-
 
 module.exports = router;

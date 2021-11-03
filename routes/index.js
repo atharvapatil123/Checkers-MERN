@@ -6,9 +6,11 @@ const { ensureAuthenticated } = require("../config/auth");
 const User = require("../models/User");
 
 //Welcome Page
-router.get("/", (req, res) => {
-  res.render("login", {
-    log: false,
+router.get("/",  ensureAuthenticated,(req, res) => {
+  res.render("dahsboard", {
+    name: req.user.name,
+    log: req.isLogged,
+    dash: req.isDashed,
   });
 });
 
@@ -16,6 +18,7 @@ router.get("/", (req, res) => {
 router.get("/layout", ensureAuthenticated, (req, res) =>
   res.render("layout", {
     log: req.isLogged,
+    dash: req.isDashed,
   })
 );
 
@@ -24,6 +27,7 @@ router.get("/dashboard", ensureAuthenticated, (req, res) =>
   res.render("dashboard", {
     name: req.user.name,
     log: req.isLogged,
+    dash: true,
   })
 );
 
@@ -31,6 +35,7 @@ router.get("/dashboard", ensureAuthenticated, (req, res) =>
 router.get("/about", ensureAuthenticated, (req, res) =>
   res.render("about", {
     log: req.isLogged,
+    dash: req.isDashed,
   })
 );
 
@@ -38,6 +43,7 @@ router.get("/about", ensureAuthenticated, (req, res) =>
 router.get("/rules", ensureAuthenticated, (req, res) =>
   res.render("rules", {
     log: req.isLogged,
+    dash: req.isDashed,
   })
 );
 
@@ -45,6 +51,7 @@ router.get("/rules", ensureAuthenticated, (req, res) =>
 router.get("/logout", ensureAuthenticated, (req, res) =>
   res.render("logout", {
     log: req.isLogged,
+    dash: req.isDashed,
   })
 );
 
@@ -55,6 +62,7 @@ router.get("/leaderboard", ensureAuthenticated, (req, res, next) => {
       res.render("leaderboard", {
         data: docs,
         log: req.isLogged,
+        dash: req.isDashed,
       });
     } else {
       console.log("Failed to retrieve the Course List: ");

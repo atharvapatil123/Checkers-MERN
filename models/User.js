@@ -19,7 +19,15 @@ const UserSchema = new mongoose.Schema({
   },
   score: {
     type: Number,
-    default: 50,
+    default: 0,
+  },
+  no_of_games: {
+    type: Number,
+    default: 0,
+  },
+  wins: {
+    type: Number,
+    default: 0,
   },
 });
 

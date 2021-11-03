@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="about.css" />
   </head>
   <body>
-    <div style="isolation:isolate;" class="about-section">
-      <h2>Basics</h2>
+    <div style="isolation: isolate" class="about-section">
+      <h2 style="font-family: courgette">Basics</h2>
       <p>
         Checkers is a board game played between two players on an 8-by-8
         checkered board
@@ -27,13 +27,18 @@
       <!-- <p>Resize the browser window to see that this page is responsive by the way.</p> -->
     </div>
 
-    <div class="col"><h2 id="rules-section">Rules</h2></div>
+    <div class="col">
+      <h2 id="rules-section" style="font-family: courgette">Rules</h2>
+    </div>
     <div class="rules-row">
       <div class="col" style="margin: 15px auto">
         <h2>Check out this video to understand Checkers!</h2>
       </div>
-      <div class="col" style="margin: 15px auto; isolation:isolate; border: 1px solid white;">
-        <iframe 
+      <div
+        class="col"
+        style="margin: 15px auto; isolation: isolate; border: 1px solid white"
+      >
+        <iframe
           width="800"
           height="450"
           src="https://www.youtube.com/embed/ScKIdStgAfU?autoplay=1&mute=1"
@@ -41,8 +46,8 @@
         </iframe>
       </div>
       <div class="col">
-        <div class="item1">
-          <h3>Actions</h3>
+        <div class="item1" style="margin-right: 80px">
+          <h3 style="font-family: courgette">Actions</h3>
           <p>
             Each player takes their turn by moving a piece. Pieces always move
             forwards diagonally to the next dark square.
@@ -64,7 +69,7 @@
           <img
             src="images/4.png"
             style="text-align: center"
-            width="400"
+            width="250"
             height="250"
             class="rules-images"
           />
@@ -73,8 +78,8 @@
 
       <br />
       <div class="col">
-        <div class="item1">
-          <h3>King Row</h3>
+        <div class="item1" style="margin-right: 80px">
+          <h3 style="font-family: courgette">King Row</h3>
           <p>
             The row that is closest to each player is their king row. If a
             player's piece enters their opponent's king row, that piece becomes
@@ -86,7 +91,7 @@
             turn to move their king piece out of king row. Kings, unlike normal
             pieces, can move in both directions (forwards as well as backwards).
           </p>
-          <h3>Winning</h3>
+          <h3 style="font-family: courgette">Winning</h3>
           <p class="last-para">
             You win the game when the opponent has no more pieces or can't move
             (even if they still has pieces). If neither of the players can
@@ -98,7 +103,7 @@
           <img
             src="images/8.png"
             style="text-align: center"
-            width="410"
+            width="250"
             height="250"
             class="rules-images"
           />

@@ -12,7 +12,10 @@ body {
   *:after {
     box-sizing: inherit;
   }
-  
+
+  .navbar-nav > li {
+  padding-left: 15px;
+}
   .column {
     float: left;
     width: 23.3%;

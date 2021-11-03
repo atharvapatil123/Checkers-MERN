@@ -105,7 +105,7 @@ background-attachment: fixed;
               <a style="color:#9222D5;"  class="nav-link" href="/leaderboard" id="leaderboard"  style="font-family: 'Source Sans Pro', sans-serif !important;">Username</a>
             </li> -->
                   <li class="nav-item">
-                    <a style="color:#9222D5; font-family: 'Courgette' , sans-serif !important; font-size:20px"" href="/users/logout" class="nav-link"> Logout </a>
+                    <a style="color:#9222D5; font-family: 'Courgette' , sans-serif !important; font-size:20px" href="/users/logout" class="nav-link"> Logout </a>
                   </li>
                 </ul>
                 <%}%>
@@ -120,7 +120,16 @@ background-attachment: fixed;
           integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
           crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-        <script src="dark.js"></script>
+        <%if(dash){%>
+          <style>
+            body{
+              background-color: #19BB53;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpolygon fill='%23000' fill-opacity='.1' points='120 0 120 60 90 30 60 0 0 0 0 0 60 60 0 120 60 120 90 90 120 60 120 0'/%3E%3C/svg%3E");
+            }
+          </style>
+        <%}else{%>
+          <script src="dark.js"></script>
+        <%}%>
         </body>
 
 </html>

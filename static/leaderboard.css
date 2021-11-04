@@ -25,10 +25,10 @@ table thead tr th {
   background-color: #8304aa !important;
   color: white !important;
 }
-/* table tr:nth-child(even) {
-  background-color: #f2f2f2;
-} */
 
+.rowfont{
+  color: #8304aa !important;
+}
 table tr:hover {
   background-color: #9ba9c7;
   color: #ffffff;

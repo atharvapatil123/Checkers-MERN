@@ -1,12 +1,12 @@
-  <div class="row mx-auto" style="margin-top:180px; margin-right:50px; width:65%;">
+<div class="row mx-auto" style="margin-top:180px; margin-right:50px; width:65%;">
     <div class="col-md-6 m-auto">
       <div class="card card-body">
         <h1 class="text-center mb-3" style="color: purple;
         font-size: 33px;">
-          <i class="fas fa-sign-in-alt"></i> Login
+          <i class="fas fa-sign-in-alt"></i> Change Password
         </h1>
         <%- include ("./partials/messages"); %>
-        <form action="/users/login" method="POST" style="padding: 10px">
+        <form action="/users/forgetpass" method="POST" style="padding: 10px">
           <div class="form-group"style="margin: 5px">
             <label for="email" style="margin: 5px">Email</label>
             <input
@@ -27,23 +27,33 @@
               placeholder="Enter Password"
             />
           </div>
+          <div class="form-group" style="margin: 5px">
+            <label for="password" style="margin: 5px">Confirm Password</label>
+            <input
+              type="password"
+              id="password2"
+              name="password2"
+              class="form-control"
+              placeholder="Enter Password"
+            />
+          </div>
           <div style="display: flex; justify-content: center">
             <button type="submit" class="btn btn-primary btn-block" style="
             background-color: purple;
             width: 80%;
             margin-bottom: 0px;
             margin: 10px auto;
-          ">Login</button>
+          ">Change</button>
           </div>
         </form>
-        <div style="display: flex;">
+        <!-- <div style="display: flex;">
           <p class="lead mt-4" style="width:200px; font-size: medium; margin:auto; margin-top: 0px !important; font-weight: 300;">
             No Account? <a href="/users/register" style="color: purple;">Register</a>
           </p>
           <p class="lead mt-4" style="width:200px; padding-left:60px; font-size: medium; margin:auto; margin-top: 0px !important; font-weight: 300;">
-            <a href="/users/forgetpass" style="color: purple;">Forgot Password?</a>
+            <a href="/users/register" style="color: purple;">Forgot Password?</a>
           </p>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

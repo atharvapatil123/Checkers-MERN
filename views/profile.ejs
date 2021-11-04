@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Checkers</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="about.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="leaderboard.css" />
+  </head>
+  <body>
+    <!-- <style>
+      .rowfont{
+        color: black;
+      }
+    </style> -->
+    <div class="about-section">
+      <h2 style="font-family: courgette">My profile</h2>
+    </div>
+
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Number of games played</th>
+            <th>Wins</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <% if(data.length){ for(var i = 0; i< data.length; i++) {%> -->
+          <tr>
+            <!-- style="color: #8304aa;" -->
+            <td class="rowfont"><%= (1) %></td>
+            <td class="rowfont"><%= data[0].name%></td>
+            <td class="rowfont"><%= data[0].score%></td>
+            <td class="rowfont"><%= data[0].no_of_games%></td>
+            <td class="rowfont"><%= data[0].wins%></td>
+          </tr>
+          <!-- <% } }else{ %> -->
+          <!-- <tr> -->
+            <!-- <td colspan="3">No user</td> -->
+          <!-- </tr> -->
+          <!-- <% } %> -->
+        </tbody>
+      </table>
+    </div>
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="index.js"
+    ></script>
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="../routes/leaderboard.js"
+    ></script>
+  </body>
+</html>

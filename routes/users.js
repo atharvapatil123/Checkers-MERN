@@ -21,6 +21,13 @@ router.get("/register", (req, res) =>
   })
 );
 
+router.get("/forgetpass", (req, res) =>
+  res.render("forgetpass", {
+    log: false,
+    dash: req.isDashed,
+  })
+);
+
 //Register Handle
 router.post("/register", (req, res) => {
   const { name, email, password, password2 } = req.body;
@@ -118,11 +125,77 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
+//Forget password handle
+router.post("/forgetpass", (req, res, next) => {
+  const { email, password, password2 } = req.body;
+
+  let errors = [];
+
+  // Check required fields
+  if (!email || !password || !password2) {
+    errors.push({ msg: "Please Fill in all fields" });
+  }
+
+  // Check passwords match
+  if (password !== password2) {
+    errors.push({ msg: "Passwords do no match" });
+  }
+
+  if (errors.length > 0) {
+    res.render("forgetpass", {
+      errors,
+      email,
+      password,
+      password2,
+      log: false,
+      dash: req.isDashed,
+    });
+  } else {
+    // Validation Passed!
+    User.findOne({ email: email }).then((user) => {
+      if (user) {
+        console.log(user)
+        //User exits
+        //Hash Password
+        bcrypt.genSalt(10, (error, salt) =>
+          bcrypt.hash(password, salt, (err, hash) => {
+            if (err) throw err;
+
+            //Set password to hashed password
+            user.password = hash;
+
+            user
+              .save()
+              .then((user) => {
+                req.flash(
+                  "success_msg",
+                  "Password is changed successfully. You can log in"
+                );
+                res.redirect("/users/login");
+              })
+              .catch((err) => console.log(err));
+          })
+        );
+      } else {
+        errors.push({ msg: "No user found" });
+        res.render("forgetpass", {
+          errors,
+          email,
+          password,
+          password2,
+          log: false,
+          dash: req.isDashed,
+        });
+      }
+    });
+  }
+});
+
 //logout Handle
 router.get("/logout", (req, res) => {
   req.logout(); //Using passport middleware
   req.flash("success_msg", "You are successfully logged out");
-  res.redirect("/users/login", {
+  res.render("login", {
     log: false,
     dash: req.isDashed,
   });

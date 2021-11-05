@@ -13,44 +13,84 @@
     <link rel="stylesheet" href="leaderboard.css" />
   </head>
   <body>
-    <!-- <style>
-      .rowfont{
-        color: black;
+    <style>
+      span {
+        font-size: 20px;
+        padding-left: 20px;
+        font-family: "Nunito", sans-serif;
       }
-    </style> -->
-    <div class="about-section">
+    </style>
+    <div style="isolation: isolate" class="about-section">
       <h2 style="font-family: courgette">My profile</h2>
     </div>
-
-    <div class="col">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Score</th>
-            <th>Number of games played</th>
-            <th>Wins</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- <% if(data.length){ for(var i = 0; i< data.length; i++) {%> -->
-          <tr>
-            <!-- style="color: #8304aa;" -->
-            <td class="rowfont"><%= (1) %></td>
-            <td class="rowfont"><%= data[0].name%></td>
-            <td class="rowfont"><%= data[0].score%></td>
-            <td class="rowfont"><%= data[0].no_of_games%></td>
-            <td class="rowfont"><%= data[0].wins%></td>
-          </tr>
-          <!-- <% } }else{ %> -->
-          <!-- <tr> -->
-            <!-- <td colspan="3">No user</td> -->
-          <!-- </tr> -->
-          <!-- <% } %> -->
-        </tbody>
-      </table>
+    <div class="container" style="display: flex; justify-content: center">
+      <div class="div1" style="margin-top: 100px; margin-left: 150px">
+        <span style="display: block"
+          ><b>Name :</b> <span> <%=data[0].name%></span></span
+        >
+        <span style="display: block"
+          ><b>Email :</b> <span> <%=data[0].email%></span></span
+        >
+        <span style="display: block"
+          ><b>Highest Score : </b> <span><%= data[0].score%></span></span
+        >
+        <span style="display: block"
+          ><b>Total games played : </b>
+          <span><%= data[0].no_of_games%></span></span
+        >
+        <span style="display: block"
+          ><b>Wins : </b> <span id="wins"><%= data[0].wins%></span></span
+        >
+        <span style="display: block">
+          <b>Losses : </b>
+          <span><%= data[0].no_of_games - data[0].wins %></span>
+        </span>
+        <span style="display: block">
+          <b>Accuracy : </b>
+          <span><%=data[0].wins / data[0].no_of_games *100 %></span>
+        </span>
+        <span style="display: block"
+          ><b>Best Win Time :</b> <span><%= data[0].best_win_time%></span></span
+        >
+      </div>
+      <div class="div2" style="margin-left: -18px">
+        <span id="piechart" style="margin: auto; margin-left: 100px"></span>
+      </div>
     </div>
+    <!-- <div class="col"> -->
+    <!-- </div> -->
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      console.log(parseInt(document.getElementById("wins").innerHTML));
+      // Load google charts
+      google.charts.load("current", { packages: ["corechart"] });
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Draw the chart and set the chart values
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Task", "Hours per Day"],
+          ["Win", parseInt(document.getElementById("wins").innerHTML)],
+          ["Lose", 5],
+        ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = {
+          title: "My Average Performance",
+          width: 550,
+          height: 400,
+        };
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(
+          document.getElementById("piechart")
+        );
+        chart.draw(data, options);
+      }
+    </script>
     <script
       language="javascript"
       type="text/javascript"
@@ -61,5 +101,14 @@
       type="text/javascript"
       src="../routes/leaderboard.js"
     ></script>
+    <style>
+      rect {
+        width: 0px;
+        height: 0px;
+      }
+      svg {
+        margin-left: 80px;
+      }
+    </style>
   </body>
 </html>

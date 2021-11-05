@@ -154,7 +154,7 @@ router.post("/forgetpass", (req, res, next) => {
     // Validation Passed!
     User.findOne({ email: email }).then((user) => {
       if (user) {
-        console.log(user)
+        console.log(user);
         //User exits
         //Hash Password
         bcrypt.genSalt(10, (error, salt) =>

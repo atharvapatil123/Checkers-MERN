@@ -20,14 +20,21 @@ const UserSchema = new mongoose.Schema({
   score: {
     type: Number,
     default: 0,
+    default: 81,
   },
   no_of_games: {
     type: Number,
     default: 0,
+    default: 32,
   },
   wins: {
     type: Number,
     default: 0,
+    default: 23,
+  },
+  best_win_time: {
+    type: Number,
+    default: 1,
   },
 });
 

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Checkers</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+      crossorigin="anonymous"
+    />
+    <!-- <link href="index.css" /> -->
+    <link rel="stylesheet" href="about.css" />
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <script src="../models/contact.js"></script>
+    <div style="isolation: isolate" class="about-section">
+      <h2 style="font-family: courgette">Contact us</h2>
+      <p>
+       Please provide your feedbacks or suggestions by filling up this form!
+      </p>
+      <img src="images/5.png" width="380" height="260" />
+
+      <!-- <p>Resize the browser window to see that this page is responsive by the way.</p> -->
+    </div>
+
+    <div class="col">
+      <div id="contact">
+        <form action="/contact" method="POST" id="form" name="form">
+          <div id="heading">Contact Form</div>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="same"
+            placeholder="Enter your name"
+            autocomplete="off"
+          />
+          <input
+            type="text"
+            name="age"
+            id="age"
+            class="same"
+            placeholder="Enter your age"
+            autocomplete="off"
+          />
+          <select name="gender" id="gender">
+            <option value="Enter your gender" id="option1">
+              Enter your gender
+            </option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+          <!-- <input type="text" name="gender" id="gender" class="same" placeholder="Enter your gender"> -->
+          <textarea
+            name="address"
+            id="address"
+            cols="30"
+            class="same"
+            rows="10"
+            placeholder="Enter your address"
+            autocomplete="off"
+          ></textarea>
+          <textarea
+            name="more"
+            id="more"
+            cols="30"
+            class="same"
+            rows="10"
+            placeholder="More about you"
+            autocomplete="off"
+          ></textarea>
+          <button class="btn" onclick="return validation()" id="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="index.js"
+    ></script>
+    <script>
+      let f = document.getElementById("form");
+      let head = document.getElementById("heading");
+      let names = document.getElementById("name");
+      let age = document.getElementById("age");
+      let gender = document.getElementById("gender");
+      let address = document.getElementById("address");
+      let more = document.getElementById("more");
+      let image = document.getElementById("cupcake");
+      let submit = document.getElementById("submit");
+      let same = document.getElementsByClassName("same");
+      function validation() {
+        if (names.value == "") {
+          alert("Enter full name");
+          names.focus();
+          return false;
+        } else if (age.value == "") {
+          alert("Enter your age");
+          age.focus();
+          return false;
+        } else if (gender.value == "Enter your gender") {
+          alert("Enter your gender");
+          gender.focus();
+          return false;
+        } else if (more.value == "") {
+          alert("Enter some more about you");
+          more.focus();
+          return false;
+        } else if (address.value == "") {
+          alert("Enter your address");
+          address.focus();
+          return false;
+        } else if (isNaN(age.value)) {
+          alert("Enter proper age ");
+          age.focus();
+          return false;
+        } else if (age.value < 18) {
+          alert("Enter details if you are an adult. You must be 18+");
+        } else {
+          alert("Your form has been submitted successfully ! :)");
+          return true;
+        }
+      }
+
+      f.addEventListener("mouseenter", () => {
+        head.style.color = "white";
+        image.classList.toggle("active");
+        f.style.borderColor = "black";
+      });
+      // same.classList.add('same');
+      f.addEventListener("mouseleave", () => {
+        head.style.color = "black";
+        image.classList.toggle("active");
+        f.style.borderColor = "transparent";
+      });
+      if (names.value != "") {
+        names.style.backgroundColor = "white";
+      }
+
+      submit.addEventListener("mouseenter", () => {
+        f.style.borderColor = "yellow";
+      });
+      submit.addEventListener("mouseleave", () => {
+        f.style.borderColor = "black";
+      });
+    </script>
+  </body>
+</html>

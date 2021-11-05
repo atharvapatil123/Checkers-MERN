@@ -4,6 +4,7 @@ const { ensureAuthenticated } = require("../config/auth");
 
 // User module
 const User = require("../models/User");
+const Contact = require("../models/contact");
 
 //Welcome Page
 router.get("/", ensureAuthenticated, (req, res) => {
@@ -49,6 +50,34 @@ router.get("/rules", ensureAuthenticated, (req, res) =>
     name: req.user.name,
   })
 );
+
+//contact page
+router.get("/contact", ensureAuthenticated, (req, res) =>
+  res.render("contact", {
+    log: req.isLogged,
+    dash: req.isDashed,
+    name: req.user.name,
+  })
+);
+
+router.post("/contact", ensureAuthenticated, (req, res, next) => {
+  let myData = new Contact(req.body);
+  myData
+    .save()
+    .then(() => {
+      //returrns a promise after save
+      // res.status(200).render('index.pug') ;
+      // req.flash('success', 'Thanks for the message! I’ll be in touch :)');
+      res.status(200).render("contact", {
+        log: req.isLogged,
+        dash: req.isDashed,
+        name: req.user.name,
+      });
+    })
+    .catch(() => {
+      res.status(404).send("Item not saved in database :(");
+    });
+});
 
 //logout page
 router.get("/logout", ensureAuthenticated, (req, res) =>

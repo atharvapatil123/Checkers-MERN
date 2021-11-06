@@ -36,6 +36,10 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     default: 1,
   },
+  score_per_month: {
+    type: Array,
+    default: [5, 1, 4, 1, 2, 3, 4, 1, 2, 1, 2, 4],
+  },
 });
 
 const User = mongoose.model("User", UserSchema);

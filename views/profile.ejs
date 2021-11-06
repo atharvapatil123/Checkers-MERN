@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Checkers</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -57,6 +59,7 @@
         <span id="piechart" style="margin: auto; margin-left: 100px"></span>
       </div>
     </div>
+    <canvas id="myChart" style="width: 100%; max-width: 700px"></canvas>
     <!-- <div class="col"> -->
     <!-- </div> -->
     <script
@@ -64,14 +67,20 @@
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
     <script type="text/javascript">
-      console.log(parseInt(document.getElementById("wins").innerHTML));
+      function htmlDecode(input) {
+        var e = document.createElement("div");
+        e.innerHTML = input;
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+      }
+      var myData = JSON.parse(htmlDecode("<%= JSON.stringify(data) %>"));
+      console.log(myData[0].score_per_month);
       // Load google charts
       google.charts.load("current", { packages: ["corechart"] });
       google.charts.setOnLoadCallback(drawChart);
 
       // Draw the chart and set the chart values
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
+        var dataPie = google.visualization.arrayToDataTable([
           ["Task", "Hours per Day"],
           ["Win", parseInt(document.getElementById("wins").innerHTML)],
           ["Lose", 5],
@@ -88,8 +97,51 @@
         var chart = new google.visualization.PieChart(
           document.getElementById("piechart")
         );
-        chart.draw(data, options);
+        chart.draw(dataPie, options);
       }
+
+      //BAR GRAPH
+
+      var xValues = [
+        "Jan",
+        "Feb",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      yValues = [];
+      for (let i = 0; i < 12; i++) {
+        yValues[i] = parseInt(myData[0].score_per_month[i]);
+      }
+
+      var barColors = "#614fc7";
+
+      new Chart("myChart", {
+        type: "bar",
+        data: {
+          labels: xValues,
+          datasets: [
+            {
+              backgroundColor: barColors,
+              data: yValues,
+            },
+          ],
+        },
+        options: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: "Score Per Month Analysis",
+          },
+        },
+      });
     </script>
     <script
       language="javascript"

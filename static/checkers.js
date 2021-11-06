@@ -148,6 +148,7 @@ function drawVictoryMessage() {
         strokeWeight(5);
         text("Black Wins!", WIDTH / 2, WIDTH / 2);
         strokeWeight(1);
+        console.log("winner is" + data[0].name);
     }
 }
 

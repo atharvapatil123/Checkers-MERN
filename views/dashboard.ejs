@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div style="isolation: isolate" class="about-section">
+    <div style="isolation: isolate;" class="about-section">
       <h1 style="font-family: courgette">Welcome</h1>
       <p></p>
       <p>
@@ -28,8 +28,20 @@
         There are two themes, light and dark, which you can adjust according to
         your preference at any time.
       </p>
+      <!-- style="font-family: courgette; padding :5px 15px; background-color: rgb(111, 224, 111)" -->
+      <!-- <button style="font-family: courgette; padding :5px 15px; background-color: rgb(111, 224, 111)" type="button" class="btn btn-success">
+        <a style="color:black; text-decoration: none;" href="#defaultCanvas0">Lets start</a>
+      
+      </button> -->
       <!-- <p>Resize the browser window to see that this page is responsive by the way.</p> -->
     </div>
+
+    <div id="abc" style="margin-left: auto; margin-top: 10px; text-align: center; align-items: center; ">
+      <button style="font-family: courgette; padding :5px 15px; background-color: #614fc7;"  type="button" class="btn btn-success" onclick="window.location.reload()">
+      <a style="color:rgb(255, 255, 255); text-decoration: none; " href="#defaultCanvas0">New Game</a>
+    </button>
+  </div>
+
     <!-- <h1 class="mt-4">Dashboard</h1> -->
     <!-- <p class="lead mb-3">Welcome <%=name %></p> -->
     <style>
@@ -65,5 +77,6 @@
       type="text/javascript"
       src="index.js"
     ></script>
+    
   </body>
 </html>

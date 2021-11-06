@@ -8,7 +8,7 @@ const Contact = require("../models/contact");
 
 //Welcome Page
 router.get("/", ensureAuthenticated, (req, res) => {
-  res.render("dahsboard", {
+  res.render("dashboard", {
     name: req.user.name,
     log: req.isLogged,
     dash: req.isDashed,

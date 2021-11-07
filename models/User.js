@@ -40,6 +40,10 @@ const UserSchema = new mongoose.Schema({
     type: Array,
     default: [5, 1, 4, 1, 2, 3, 4, 1, 2, 1, 2, 4],
   },
+  score_per_day: {
+    type: Array,
+    default: [1, 0, 1, 2, 0, 3, 2],
+  },
 });
 
 const User = mongoose.model("User", UserSchema);

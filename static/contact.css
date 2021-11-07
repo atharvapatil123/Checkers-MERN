@@ -61,7 +61,7 @@ form {
   border: 2px solid transparent;
   border-radius: 5px;
   position: relative;
-  margin-top: 150px;
+  margin-top: 50px;
 }
 #heading {
   text-align: center;
@@ -70,6 +70,7 @@ form {
   font-family: "Dancing Script", cursive;
   letter-spacing: 5px;
   margin-bottom: 15px;
+  color: #614fc7;
 }
 input,
 textarea,
@@ -112,7 +113,7 @@ textarea{
 }
 form:hover {
   /* background-color: aqua; */
-  background: rgb(146, 34, 213) no-repeat center center;
+  background: #614fc7 no-repeat center center;
   background-size: cover;
   border: 2px solid black;
 }

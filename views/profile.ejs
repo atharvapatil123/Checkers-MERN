@@ -25,48 +25,59 @@
     <div style="isolation: isolate" class="about-section">
       <h2 style="font-family: courgette">My profile</h2>
     </div>
-    <div class="container" style="display: flex; justify-content: center">
-      <div class="div1" style="margin-top: 100px; margin-left: 150px">
-        <span style="display: block"
-          ><b>Name :</b> <span> <%=data[0].name%></span></span
-        >
-        <span style="display: block"
-          ><b>Email :</b> <span> <%=data[0].email%></span></span
-        >
-        <span style="display: block"
-          ><b>Highest Score : </b> <span><%= data[0].score%></span></span
-        >
-        <span style="display: block"
+
+    <div class="container">
+      <div class="row row-cols-2" style="margin-bottom: 50px;">
+        <div class="div1" style="margin-top: 100px; padding-left:200px">
+          <span><b>Name :</b> <span> <%=data[0].name%></span></span>
+          <br>
+          <span><b>Email :</b> <span> <%=data[0].email%></span></span>
+          <br>
+          <span><b>Highest Score : </b> <span><%= data[0].score%></span></span>
+          <br>
+          <span
           ><b>Total games played : </b>
           <span><%= data[0].no_of_games%></span></span
-        >
-        <span style="display: block"
-          ><b>Wins : </b> <span id="wins"><%= data[0].wins%></span></span
-        >
-        <span style="display: block">
-          <b>Losses : </b>
-          <span><%= data[0].no_of_games - data[0].wins %></span>
-        </span>
-        <span style="display: block">
-          <b>Accuracy : </b>
-          <span><%=data[0].wins / data[0].no_of_games *100 %></span>
-        </span>
-        <span style="display: block"
-          ><b>Best Win Time :</b> <span><%= data[0].best_win_time%></span></span
-        >
-      </div>
-      <div class="div2" style="margin-left: -18px">
-        <span id="piechart" style="margin: auto; margin-left: 100px"></span>
+          >
+          <br>
+          <span><b>Wins : </b> <span id="wins"><%= data[0].wins%></span></span>
+          <br>
+          <span>
+            <b>Losses : </b>
+            <span><%= data[0].no_of_games - data[0].wins %></span>
+          </span>
+          <br>
+          <span>
+            <b>Accuracy : </b>
+            <span><%=data[0].wins / data[0].no_of_games *100 %></span>
+          </span>
+          <br>
+          <span
+          ><b>Best Win Time :</b>
+          <span><%= data[0].best_win_time%></span></span
+          >
+          <br>
+        </div>
+        <div class="div2" style="margin-left: -18px">
+          <span id="piechart" style="margin: auto; margin-left: 100px"></span>
+        </div>
+        <canvas
+          id="myChart1"
+          style="isolation: isolate; max-width: 600px"
+        ></canvas>
+        <canvas
+          id="myChart2"
+          style="isolation: isolate; max-width: 600px"
+        ></canvas>
       </div>
     </div>
-    <canvas id="myChart" style="isolation: isolate; width: 100%; max-width: 700px"></canvas>
     <!-- <div class="col"> -->
     <!-- </div> -->
     <script
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
-    
+
     <script type="text/javascript">
       function htmlDecode(input) {
         var e = document.createElement("div");
@@ -101,9 +112,9 @@
         chart.draw(dataPie, options);
       }
 
-      //BAR GRAPH
+      //BAR GRAPH 1
 
-      var xValues = [
+      var xValues1 = [
         "Jan",
         "Feb",
         "March",
@@ -117,21 +128,21 @@
         "Nov",
         "Dec",
       ];
-      yValues = [];
+      yValues1 = [];
       for (let i = 0; i < 12; i++) {
-        yValues[i] = parseInt(myData[0].score_per_month[i]);
+        yValues1[i] = parseInt(myData[0].score_per_month[i]);
       }
 
       var barColors = "#614fc7";
 
-      new Chart("myChart", {
+      new Chart("myChart1", {
         type: "bar",
         data: {
-          labels: xValues,
+          labels: xValues1,
           datasets: [
             {
               backgroundColor: barColors,
-              data: yValues,
+              data: yValues1,
             },
           ],
         },
@@ -140,12 +151,43 @@
           title: {
             display: true,
             text: "Score Per Month Analysis",
-            // fontColor: red, 
+            // fontColor: red,
             // fontName: "Courier New",    // 'Times New Roman'
-            fontSize: 20,               // 12, 18
+            fontSize: 20, // 12, 18
           },
-          
-          
+        },
+      });
+
+      //BAR GRAPH 2
+
+      var xValues2 = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+      yValues2 = [];
+      for (let i = 0; i < 7; i++) {
+        yValues2[i] = parseInt(myData[0].score_per_day[i]);
+      }
+
+      var barColors = "#614fc7";
+
+      new Chart("myChart2", {
+        type: "bar",
+        data: {
+          labels: xValues2,
+          datasets: [
+            {
+              backgroundColor: barColors,
+              data: yValues2,
+            },
+          ],
+        },
+        options: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: "Score Per Day Analysis",
+            // fontColor: red,
+            // fontName: "Courier New",    // 'Times New Roman'
+            fontSize: 20, // 12, 18
+          },
         },
       });
 
@@ -154,7 +196,6 @@
       // context.font = "bold 96px Helvetica, Arial, sans-serif";
       // context.fillStyle = "steelblue";
       // context.strokeStyle = "#173b79";
-
     </script>
     <script
       language="javascript"
@@ -170,7 +211,7 @@
       /* #myChart{
         color: aqua;
       } */
-     
+
       rect {
         width: 0px;
         height: 0px;
@@ -182,6 +223,7 @@
         font-size: 18px;
         fill: rgb(100, 201, 41);
       }
+
     </style>
   </body>
 </html>

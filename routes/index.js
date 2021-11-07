@@ -26,12 +26,13 @@ router.get("/layout", ensureAuthenticated, (req, res) =>
 
 //Dashboard Page
 router.get("/dashboard", ensureAuthenticated, (req, res, next) => {
-  User.find({ name: req.user.name }, (err, docs) => {
+  User.find((err, docs) => {
     if (!err) {
       res.render("dashboard", {
         data: docs,
         log: req.isLogged,
         dash: true,
+        email: req.user.email,
         name: req.user.name,
       });
     } else {

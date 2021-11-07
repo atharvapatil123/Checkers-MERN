@@ -28,12 +28,6 @@
         There are two themes, light and dark, which you can adjust according to
         your preference at any time.
       </p>
-      <!-- style="font-family: courgette; padding :5px 15px; background-color: rgb(111, 224, 111)" -->
-      <!-- <button style="font-family: courgette; padding :5px 15px; background-color: rgb(111, 224, 111)" type="button" class="btn btn-success">
-        <a style="color:black; text-decoration: none;" href="#defaultCanvas0">Lets start</a>
-      
-      </button> -->
-      <!-- <p>Resize the browser window to see that this page is responsive by the way.</p> -->
     </div>
 
     <div
@@ -56,20 +50,25 @@
         onclick="window.location.reload()"
       >
         <a
-          style="color: rgb(255, 255, 255); text-decoration: none"
+          style="
+            color: rgb(255, 255, 255);
+            font-size: 20px;
+            text-decoration: none;
+          "
           href="#defaultCanvas0"
           >New Game</a
         >
       </button>
     </div>
 
-    <!-- <h1 class="mt-4">Dashboard</h1> -->
-    <!-- <p class="lead mb-3">Welcome <%=name %></p> -->
     <style>
       body {
         background-color: #aa3333;
       }
-
+      p {
+        font-family: "Nunito", sans-serif;
+        font-size: 17px;
+      }
       canvas {
         /* margin-bottom: 15px !important;; */
         display: block !important;
@@ -77,7 +76,6 @@
       }
       /* body{
         background-color: #11aa44 !important;
-
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%237F3' stroke-width='1' stroke-opacity='0.2'%3E%3Crect x='-40' y='40' width='75' height='75'/%3E%3Crect x='-35' y='45' width='65' height='65'/%3E%3Crect x='-30' y='50' width='55' height='55'/%3E%3Crect x='-25' y='55' width='45' height='45'/%3E%3Crect x='-20' y='60' width='35' height='35'/%3E%3Crect x='-15' y='65' width='25' height='25'/%3E%3Crect x='-10' y='70' width='15' height='15'/%3E%3Crect x='-5' y='75' width='5' height='5'/%3E%3Crect width='35' height='35'/%3E%3Crect x='5' y='5' width='25' height='25'/%3E%3Crect x='10' y='10' width='15' height='15'/%3E%3Crect x='15' y='15' width='5' height='5'/%3E%3Crect x='40' width='75' height='75'/%3E%3Crect x='45' y='5' width='65' height='65'/%3E%3Crect x='50' y='10' width='55' height='55'/%3E%3Crect x='55' y='15' width='45' height='45'/%3E%3Crect x='60' y='20' width='35' height='35'/%3E%3Crect x='65' y='25' width='25' height='25'/%3E%3Crect x='70' y='30' width='15' height='15'/%3E%3Crect x='75' y='35' width='5' height='5'/%3E%3Crect x='40' y='80' width='35' height='35'/%3E%3Crect x='45' y='85' width='25' height='25'/%3E%3Crect x='50' y='90' width='15' height='15'/%3E%3Crect x='55' y='95' width='5' height='5'/%3E%3Crect x='120' y='-40' width='75' height='75'/%3E%3Crect x='125' y='-35' width='65' height='65'/%3E%3Crect x='130' y='-30' width='55' height='55'/%3E%3Crect x='135' y='-25' width='45' height='45'/%3E%3Crect x='140' y='-20' width='35' height='35'/%3E%3Crect x='145' y='-15' width='25' height='25'/%3E%3Crect x='150' y='-10' width='15' height='15'/%3E%3Crect x='155' y='-5' width='5' height='5'/%3E%3Crect x='120' y='40' width='35' height='35'/%3E%3Crect x='125' y='45' width='25' height='25'/%3E%3Crect x='130' y='50' width='15' height='15'/%3E%3Crect x='135' y='55' width='5' height='5'/%3E%3Crect y='120' width='75' height='75'/%3E%3Crect x='5' y='125' width='65' height='65'/%3E%3Crect x='10' y='130' width='55' height='55'/%3E%3Crect x='15' y='135' width='45' height='45'/%3E%3Crect x='20' y='140' width='35' height='35'/%3E%3Crect x='25' y='145' width='25' height='25'/%3E%3Crect x='30' y='150' width='15' height='15'/%3E%3Crect x='35' y='155' width='5' height='5'/%3E%3Crect x='200' y='120' width='75' height='75'/%3E%3Crect x='40' y='200' width='75' height='75'/%3E%3Crect x='80' y='80' width='75' height='75'/%3E%3Crect x='85' y='85' width='65' height='65'/%3E%3Crect x='90' y='90' width='55' height='55'/%3E%3Crect x='95' y='95' width='45' height='45'/%3E%3Crect x='100' y='100' width='35' height='35'/%3E%3Crect x='105' y='105' width='25' height='25'/%3E%3Crect x='110' y='110' width='15' height='15'/%3E%3Crect x='115' y='115' width='5' height='5'/%3E%3Crect x='80' y='160' width='35' height='35'/%3E%3Crect x='85' y='165' width='25' height='25'/%3E%3Crect x='90' y='170' width='15' height='15'/%3E%3Crect x='95' y='175' width='5' height='5'/%3E%3Crect x='120' y='160' width='75' height='75'/%3E%3Crect x='125' y='165' width='65' height='65'/%3E%3Crect x='130' y='170' width='55' height='55'/%3E%3Crect x='135' y='175' width='45' height='45'/%3E%3Crect x='140' y='180' width='35' height='35'/%3E%3Crect x='145' y='185' width='25' height='25'/%3E%3Crect x='150' y='190' width='15' height='15'/%3E%3Crect x='155' y='195' width='5' height='5'/%3E%3Crect x='160' y='40' width='75' height='75'/%3E%3Crect x='165' y='45' width='65' height='65'/%3E%3Crect x='170' y='50' width='55' height='55'/%3E%3Crect x='175' y='55' width='45' height='45'/%3E%3Crect x='180' y='60' width='35' height='35'/%3E%3Crect x='185' y='65' width='25' height='25'/%3E%3Crect x='190' y='70' width='15' height='15'/%3E%3Crect x='195' y='75' width='5' height='5'/%3E%3Crect x='160' y='120' width='35' height='35'/%3E%3Crect x='165' y='125' width='25' height='25'/%3E%3Crect x='170' y='130' width='15' height='15'/%3E%3Crect x='175' y='135' width='5' height='5'/%3E%3Crect x='200' y='200' width='35' height='35'/%3E%3Crect x='200' width='35' height='35'/%3E%3Crect y='200' width='35' height='35'/%3E%3C/g%3E%3C/svg%3E") !important;
       } */
     </style>
@@ -85,14 +83,20 @@
     <script language="javascript" type="text/javascript" src="p5.js"></script>
     <script>
       /* Game of Checkers*/
-
       function htmlDecode(input) {
         var e = document.createElement("div");
         e.innerHTML = input;
         return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
       }
-      var myData = JSON.parse(htmlDecode("<%= JSON.stringify(data) %>"));
-      console.log(myData[0].name);
+      var Data = JSON.parse(htmlDecode("<%= JSON.stringify(data) %>"));
+      var myEmail = JSON.parse(htmlDecode("<%= JSON.stringify(email) %>"));
+      var myData = [];
+      for (i = 0; i < Data.length; i++) {
+        if (Data[i].email == myEmail) {
+          myData = Data[i];
+        }
+      }
+      console.log(myData);
 
       // board representation: array board with piece tables
       let board = [
@@ -138,49 +142,6 @@
         { x: 7, y: 5, color: "B", captured: false, king: false }, // piece 24
       ];
 
-      // let board = [
-      //     [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-      //     [-1,  0, 13,  0, 14,  0, 15,  0, 16, -1], // 7 row
-      //     [-1, 17,  0,  0,  0,  0,  0,  0,  0, -1], // 6 row
-      //     [-1,  0,  0,  0,  0,  0,  0,  0,  1, -1], // 5 row
-      //     [-1,  2,  0,  0,  0,  0,  0, 18,  0, -1], // 4 row
-      //     [-1,  0, 19,  0,  0,  0,  0,  0,  0, -1], // 3 row
-      //     [-1, 20,  0,  3,  0,  4,  0,  5,  0, -1], // 2 row
-      //     [-1,  0,  0,  0,  0,  0,  0,  0,  0, -1], // 1 row
-      //     [-1,  6,  0,  7,  0,  0,  0,  8,  0, -1], // 0 row
-      //     [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
-      // ];
-      //
-      // let whitePieces = [
-      //     { x: 7, y: 5, color: "W", captured: false, king: false }, // piece 1
-      //     { x: 0, y: 4, color: "W", captured: false, king: false }, // piece 2
-      //     { x: 2, y: 2, color: "W", captured: false, king: false }, // piece 3
-      //     { x: 4, y: 2, color: "W", captured: false, king: false }, // piece 4
-      //     { x: 6, y: 2, color: "W", captured: false, king: false }, // piece 5
-      //     { x: 0, y: 0, color: "W", captured: false, king: false }, // piece 6
-      //     { x: 2, y: 0, color: "W", captured: false, king: false }, // piece 7
-      //     { x: 6, y: 0, color: "W", captured: false, king: false }, // piece 8
-      //     { x: 0, y: 0, color: "W", captured: true, king: false }, // piece 9
-      //     { x: 2, y: 0, color: "W", captured: true, king: false }, // piece 10
-      //     { x: 4, y: 0, color: "W", captured: true, king: false }, // piece 11
-      //     { x: 6, y: 0, color: "W", captured: true, king: false }  // piece 12
-      // ];
-      //
-      // let blackPieces = [
-      //     { x: 1, y: 7, color: "B", captured: false, king: false }, // piece 13
-      //     { x: 3, y: 7, color: "B", captured: false, king: false }, // piece 14
-      //     { x: 5, y: 7, color: "B", captured: false, king: false }, // piece 15
-      //     { x: 7, y: 7, color: "B", captured: false, king: false }, // piece 16
-      //     { x: 0, y: 6, color: "B", captured: false, king: false }, // piece 17
-      //     { x: 6, y: 4, color: "B", captured: false, king: false }, // piece 18
-      //     { x: 1, y: 3, color: "B", captured: false, king: false }, // piece 19
-      //     { x: 0, y: 2, color: "B", captured: false, king: false }, // piece 20
-      //     { x: 1, y: 5, color: "B", captured: true, king: false }, // piece 21
-      //     { x: 3, y: 5, color: "B", captured: true, king: false }, // piece 22
-      //     { x: 5, y: 5, color: "B", captured: true, king: false }, // piece 23
-      //     { x: 7, y: 5, color: "B", captured: true, king: false }  // piece 24
-      // ];
-
       let stackMoves = [];
 
       // program variables
@@ -203,6 +164,8 @@
       // players
       let whitePlayer = { ai: false };
       let blackPlayer = { ai: true };
+
+      var temp_moves = 1;
 
       function setup() {
         createCanvas(WIDTH, WIDTH);
@@ -227,19 +190,36 @@
           drawVictoryMessage();
         }
       }
-
       function drawVictoryMessage() {
+        // var x = myData[0].name;
         if (whiteWin) {
           fill(255);
           stroke(0);
           strokeWeight(5);
           text(`${myData[0].name} Wins!`, WIDTH / 2, WIDTH / 2);
           strokeWeight(1);
+          var x = 100
+          if(temp_moves < myData['threshold_move']){
+            for(i=0;i<Data.length;i++){
+              Data[i]['score'] - (Data[i]['threshold_move'] - temp_moves)
+              Data[i]['threshold_move'] = temp_moves
+            }
+             //myData['threshold_move'] = temp_moves;
+             myData['score']=x;
+           }
+           else {
+             x = 100-(temp_moves-myData['threshold_move']);
+             myData['temp_array'].push(x)
+             myData['temp_array'].sort();
+             var len=myData['temp_array'].length-1;
+             myData['score']=myData['temp_array'][len];
+           }
         } else if (blackWin) {
           fill(0);
           stroke(255);
           strokeWeight(5);
-          text(`${myData[0].name} Wins!`, WIDTH / 2, WIDTH / 2);
+          text(`AI Wins!`, WIDTH / 2, WIDTH / 2);
+          // text("AI Wins!", WIDTH / 2, WIDTH / 2);
           strokeWeight(1);
           console.log("winner is" + myData[0].name);
         }
@@ -689,6 +669,7 @@
       }
 
       function performMove(move) {
+        if (whiteToMove) temp_moves++;
         performingMove = true;
         let piece = getPiece(move.fromX, move.fromY);
         let start = Date.now();

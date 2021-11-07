@@ -32,9 +32,9 @@ const UserSchema = new mongoose.Schema({
     default: 0,
     default: 23,
   },
-  best_win_time: {
+  threshold_move: {
     type: Number,
-    default: 1,
+    default: 10,
   },
   score_per_month: {
     type: Array,
@@ -44,6 +44,10 @@ const UserSchema = new mongoose.Schema({
     type: Array,
     default: [1, 0, 1, 2, 0, 3, 2],
   },
+  temp_array: {
+    type: Array,
+    default: [],
+  }
 });
 
 const User = mongoose.model("User", UserSchema);

@@ -38,21 +38,14 @@
               autocomplete="off"
             />
             <input
-              type="text"
-              name="age"
-              id="age"
+              type="email"
+              name="email"
+              id="email"
               class="same"
-              placeholder="Enter your age"
+              placeholder="Enter your email"
               autocomplete="off"
             />
-            <select name="gender" id="gender">
-              <option value="Enter your gender" id="option1">
-                Enter your gender
-              </option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
-            </select>
+
             <!-- <input type="text" name="gender" id="gender" class="same" placeholder="Enter your gender"> -->
             <textarea
               name="address"
@@ -60,18 +53,10 @@
               cols="30"
               class="same"
               rows="10"
-              placeholder="Enter your address"
+              placeholder="Enter your message"
               autocomplete="off"
             ></textarea>
-            <textarea
-              name="more"
-              id="more"
-              cols="30"
-              class="same"
-              rows="10"
-              placeholder="More about you"
-              autocomplete="off"
-            ></textarea>
+
             <button class="btn" onclick="return validation()" id="submit">
               Submit
             </button>
@@ -88,46 +73,36 @@
       let f = document.getElementById("form");
       let head = document.getElementById("heading");
       let names = document.getElementById("name");
-      let age = document.getElementById("age");
-      let gender = document.getElementById("gender");
+      let email = document.getElementById("email");
       let address = document.getElementById("address");
-      let more = document.getElementById("more");
-      let image = document.getElementById("cupcake");
       let submit = document.getElementById("submit");
       let same = document.getElementsByClassName("same");
+      var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      //if(inputText.value.match(mailformat))
       function validation() {
         if (names.value == "") {
           alert("Enter full name");
           names.focus();
           return false;
-        } else if (age.value == "") {
-          alert("Enter your age");
-          age.focus();
-          return false;
-        } else if (gender.value == "Enter your gender") {
-          alert("Enter your gender");
-          gender.focus();
-          return false;
-        } else if (more.value == "") {
-          alert("Enter some more about you");
-          more.focus();
+        } else if (email.value == "") {
+          alert("Enter your Email");
+          email.focus();
           return false;
         } else if (address.value == "") {
           alert("Enter your address");
           address.focus();
           return false;
-        } else if (isNaN(age.value)) {
-          alert("Enter proper age ");
-          age.focus();
+        } else if (
+          !email.value.match(mailformat)
+        ) {
+          alert("Enter your Email properly");
+          email.focus();
           return false;
-        } else if (age.value < 18) {
-          alert("Enter details if you are an adult. You must be 18+");
         } else {
           alert("Your form has been submitted successfully ! :)");
           return true;
         }
       }
-
       f.addEventListener("mouseenter", () => {
         head.style.color = "white";
         f.style.borderColor = "#8577d4";
@@ -140,7 +115,6 @@
       if (names.value != "") {
         names.style.backgroundColor = "white";
       }
-
       submit.addEventListener("mouseenter", () => {
         f.style.borderColor = "yellow";
       });

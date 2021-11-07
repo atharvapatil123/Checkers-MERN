@@ -9,7 +9,7 @@ const Contact = require("../models/contact");
 //Welcome Page
 router.get("/", ensureAuthenticated, (req, res) => {
   res.render("dashboard", {
-    name: req.user.name,
+    data: req.user,
     log: req.isLogged,
     dash: req.isDashed,
   });
@@ -25,13 +25,20 @@ router.get("/layout", ensureAuthenticated, (req, res) =>
 );
 
 //Dashboard Page
-router.get("/dashboard", ensureAuthenticated, (req, res) =>
-  res.render("dashboard", {
-    name: req.user.name,
-    log: req.isLogged,
-    dash: true,
-  })
-);
+router.get("/dashboard", ensureAuthenticated, (req, res, next) => {
+  User.find({ name: req.user.name }, (err, docs) => {
+    if (!err) {
+      res.render("dashboard", {
+        data: docs,
+        log: req.isLogged,
+        dash: true,
+        name: req.user.name,
+      });
+    } else {
+      console.log("Failed to retrieve the Course List: ");
+    }
+  });
+});
 
 //about page
 router.get("/about", ensureAuthenticated, (req, res) =>

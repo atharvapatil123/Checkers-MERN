@@ -1,7 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const { ensureAuthenticated } = require("../config/auth");
+// const express = require('express');
+const bodyParser = require("body-parser");
+const app = express();
+//const port = 3000;
 
+//app.use(express.static("./"));
+/* Parse JSON data using body parser. */
+
+app.use(bodyParser.json());
 // User module
 const User = require("../models/User");
 const Contact = require("../models/contact");
@@ -25,7 +33,7 @@ router.get("/layout", ensureAuthenticated, (req, res) =>
 );
 
 //Dashboard Page
-router.get("/dashboard", ensureAuthenticated, (req, res, next) => {
+router.get("/dashboard", ensureAuthenticated, async (req, res, next) => {
   User.find((err, docs) => {
     if (!err) {
       res.render("dashboard", {
@@ -39,6 +47,27 @@ router.get("/dashboard", ensureAuthenticated, (req, res, next) => {
       console.log("Failed to retrieve the Course List: ");
     }
   });
+});
+router.post("/dashboard", async (req, res, next) => {
+  const { human_win, email } = req.body;
+  const filter = { email: email };
+  let doc = await User.findOne(filter);
+
+  let score = doc["score"];
+  if (human_win == 'true') {
+    score = score + 10;
+  } else if (human_win == 'false') {
+    score = score - 10;
+  }
+  if(score<0)score=0
+  // Document changed in MongoDB, but not in Mongoose
+  await User.updateOne(filter, { score: score });
+
+  // This will update `doc` age to `59`, even though the doc changed.
+  //doc.age = 59;
+  await doc.save();
+  console.log(human_win, email, score);
+  res.redirect("dashboard");
 });
 
 //about page

@@ -39,14 +39,29 @@
         align-items: center;
       "
     >
-      <button
+      
+      <form action="/dashboard" method="POST">
+        <input
+          name="human_win"
+          id="human_win"
+          style="display: none"
+        />
+        <input
+          name="email"
+          id="email"
+          value=<%=email%>
+          style="display: none"
+        />
+
+        <button
         style="
           font-family: courgette;
           padding: 5px 15px;
           background-color: #614fc7;
         "
-        type="button"
+        type="submit"
         class="btn btn-success"
+        id="submit_button"
         onclick="window.location.reload()"
       >
         <a
@@ -55,10 +70,11 @@
             font-size: 20px;
             text-decoration: none;
           "
-          href="#defaultCanvas0"
           >New Game</a
         >
       </button>
+        </button>
+      </form>
     </div>
 
     <style>
@@ -82,21 +98,16 @@
 
     <script language="javascript" type="text/javascript" src="p5.js"></script>
     <script>
-      /* Game of Checkers*/
+      // User module
+      t = setTimeout(2000, console.log("submit_button.click()"))
+      clearTimeout(t)
       function htmlDecode(input) {
         var e = document.createElement("div");
         e.innerHTML = input;
         return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
       }
-      var Data = JSON.parse(htmlDecode("<%= JSON.stringify(data) %>"));
-      var myEmail = JSON.parse(htmlDecode("<%= JSON.stringify(email) %>"));
-      var myData = [];
-      for (i = 0; i < Data.length; i++) {
-        if (Data[i].email == myEmail) {
-          myData = Data[i];
-        }
-      }
-      console.log(myData);
+      var name = JSON.parse(htmlDecode("<%= JSON.stringify(name) %>"));
+      /* Game of Checkers*/
 
       // board representation: array board with piece tables
       let board = [
@@ -166,6 +177,8 @@
       let blackPlayer = { ai: true };
 
       var temp_moves = 1;
+      document.getElementById("human_win").innerHTML = 'none';
+      document.getElementById("human_win").value = undefined;
 
       function setup() {
         createCanvas(WIDTH, WIDTH);
@@ -192,36 +205,28 @@
       }
       function drawVictoryMessage() {
         // var x = myData[0].name;
+
         if (whiteWin) {
+          document.getElementById("human_win").innerHTML = true;
+          document.getElementById("human_win").value = true;
+
           fill(255);
           stroke(0);
           strokeWeight(5);
-          text(`${myData[0].name} Wins!`, WIDTH / 2, WIDTH / 2);
+          text(`${name} Wins!`, WIDTH / 2, WIDTH / 2);
           strokeWeight(1);
-          var x = 100
-          if(temp_moves < myData['threshold_move']){
-            for(i=0;i<Data.length;i++){
-              Data[i]['score'] - (Data[i]['threshold_move'] - temp_moves)
-              Data[i]['threshold_move'] = temp_moves
-            }
-             //myData['threshold_move'] = temp_moves;
-             myData['score']=x;
-           }
-           else {
-             x = 100-(temp_moves-myData['threshold_move']);
-             myData['temp_array'].push(x)
-             myData['temp_array'].sort();
-             var len=myData['temp_array'].length-1;
-             myData['score']=myData['temp_array'][len];
-           }
+          
         } else if (blackWin) {
+          document.getElementById("human_win").innerHTML = false;
+          document.getElementById("human_win").value = false;
+
           fill(0);
           stroke(255);
           strokeWeight(5);
-          text(`AI Wins!`, WIDTH / 2, WIDTH / 2);
+          text('AI Wins!', WIDTH / 2, WIDTH / 2);
           // text("AI Wins!", WIDTH / 2, WIDTH / 2);
           strokeWeight(1);
-          console.log("winner is" + myData[0].name);
+          //console.log("winner is" + myData[0].name);
         }
       }
 
@@ -236,7 +241,7 @@
       function drawWhitePieces() {
         for (const piece of whitePieces) {
           stroke(0);
-          fill(255);
+          fill(255,255,0);
           drawPiece(piece);
         }
       }
@@ -244,7 +249,7 @@
       function drawBlackPieces() {
         for (const piece of blackPieces) {
           stroke(124);
-          fill(0);
+          fill(0,0,255);
           drawPiece(piece);
         }
       }
@@ -902,6 +907,7 @@
         lastJumpY = state.lastJumpY;
       }
     </script>
+
     <script
       language="javascript"
       type="text/javascript"

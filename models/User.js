@@ -19,8 +19,7 @@ const UserSchema = new mongoose.Schema({
   },
   score: {
     type: Number,
-    default: 0,
-    default: 81,
+    default: 50,
   },
   no_of_games: {
     type: Number,
@@ -34,7 +33,7 @@ const UserSchema = new mongoose.Schema({
   },
   threshold_move: {
     type: Number,
-    default: 10,
+    default: 100,
   },
   score_per_month: {
     type: Array,
@@ -47,7 +46,7 @@ const UserSchema = new mongoose.Schema({
   temp_array: {
     type: Array,
     default: [],
-  }
+  },
 });
 
 const User = mongoose.model("User", UserSchema);

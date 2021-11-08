@@ -18,10 +18,12 @@
         color: black;
       }
     </style> -->
-    <div style="isolation: isolate"  class="about-section">
-      <h2 style="font-family: courgette; ">Leaderboard</h2>
+    <div style="isolation: isolate" class="about-section">
+      <h2 style="font-family: courgette">Leaderboard</h2>
     </div>
-
+    <%numberSort = function (a,b) { return a - b }%> <% arr=[]%> <%for(var i =
+    0; i< data.length; i++) {%> <% arr.push(data[i].score) %> <%}%> <%
+    arr.sort(numberSort)%>
     <div class="col">
       <table class="table">
         <thead>
@@ -32,18 +34,20 @@
           </tr>
         </thead>
         <tbody>
-          <% if(data.length){ for(var i = 0; i< data.length; i++) {%>
+          <%j=arr.length-1 %> <%k=1%><% while(j >=0 ){%> <%if(data.length){
+          for(var i = 0; i< data.length; i++) {%>
           <tr>
-            <!-- style="color: #8304aa;" -->
-            <td class="rowfont"><%= (i+1) %></td>
+            <% if(arr[j]==data[i].score){%>
+            <td class="rowfont"><%= (k) %></td>
             <td class="rowfont"><%= data[i].name%></td>
             <td class="rowfont"><%= data[i].score%></td>
+            <%j-- %><%k++}%>
           </tr>
           <% } }else{ %>
           <tr>
             <td colspan="3">No user</td>
           </tr>
-          <% } %>
+          <% } %> <% } %>
         </tbody>
       </table>
     </div>

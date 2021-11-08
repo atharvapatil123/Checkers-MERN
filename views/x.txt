@@ -1,0 +1,49 @@
+      function htmlDecode(input) {
+        var e = document.createElement("div");
+        e.innerHTML = input;
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+      }
+      var Data = JSON.parse(htmlDecode("<%= JSON.stringify(data) %>"));
+      var myEmail = JSON.parse(htmlDecode("<%= JSON.stringify(email) %>"));
+      var myData = [];
+
+      for (i = 0; i < Data.length; i++) {
+        //Data[i]['temp_array']
+        if (Data[i].email == myEmail) {
+          myData = Data[i];
+        }
+      }
+      //console.log(Data);
+      //console.log(Data[0]['score']);
+      //console.log(myData);
+      for (i = 0; i < Data.length; i++) {
+        console.log(Data[i]);
+        if (myData["email"] == Data[i]["email"]) console.log(Data[i]["email"]);
+        console.log(Data[i]["temp_array"].length);
+      }
+
+        var x = 100;
+        var len = 1;
+
+        if (temp_moves < myData["threshold_move"]) {
+            for (i = 0; i < Data.length; i++) {
+              if (myData["email"] == Data[i]["email"]) x = 100;
+              else if (Data[i]["score"] == 0)
+                x = 100 - (Data[i]["threshold_move"] - temp_moves);
+              else
+                x = Data[i]["score"] - (Data[i]["threshold_move"] - temp_moves);
+              Data[i]["temp_array"].push(x);
+              Data[i]["temp_array"].sort();
+              len = Data[i]["temp_array"].length - 1;
+              Data[i]["score"] = Data[i]["temp_array"][len];
+              Data[i]["threshold_move"] = temp_moves;
+            }
+            //myData['score']=100;
+            //myData['threshold_move'] = temp_moves;
+          } else {
+            x = 100 - (temp_moves - myData["threshold_move"]);
+            myData["temp_array"].push(x);
+            myData["temp_array"].sort();
+            len = myData["temp_array"].length - 1;
+            myData["score"] = myData["temp_array"][len];
+          }

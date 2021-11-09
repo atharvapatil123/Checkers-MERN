@@ -24,24 +24,20 @@ const UserSchema = new mongoose.Schema({
   no_of_games: {
     type: Number,
     default: 0,
-    default: 32,
+    // default: 32,
   },
   wins: {
     type: Number,
     default: 0,
-    default: 23,
-  },
-  threshold_move: {
-    type: Number,
-    default: 100,
+    // default: 23,
   },
   score_per_month: {
     type: Array,
-    default: [5, 1, 4, 1, 2, 3, 4, 1, 2, 1, 2, 4],
+    default: new Array(12).fill(0),
   },
   score_per_day: {
     type: Array,
-    default: [1, 0, 1, 2, 0, 3, 2],
+    default: new Array(7).fill(0),
   },
   temp_array: {
     type: Array,

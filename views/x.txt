@@ -47,3 +47,16 @@
             len = myData["temp_array"].length - 1;
             myData["score"] = myData["temp_array"][len];
           }
+
+          fill(255,0,0);
+          fill(0,0,255);
+
+          stroke(0,255,0);
+          whiteFirst ? fill(153, 51, 255) : fill(255, 255, 0);
+
+          drawhighlights: 
+          fill(0, 155, 0);
+          stroke(0, 0, 0);
+
+          drawmoves:
+          fill(0, 0, 0, 200);

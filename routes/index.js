@@ -49,19 +49,47 @@ router.get("/dashboard", ensureAuthenticated, async (req, res, next) => {
   });
 });
 router.post("/dashboard", async (req, res, next) => {
+  const d = new Date();
+  let day = d.getDay() - 1;
+  let month = d.getMonth();
+
   const { human_win, email } = req.body;
   const filter = { email: email };
   let doc = await User.findOne(filter);
 
   let score = doc["score"];
-  if (human_win == 'true') {
-    score = score + 10;
-  } else if (human_win == 'false') {
-    score = score - 10;
+  let wins = doc["wins"];
+  let no_of_games = doc["no_of_games"];
+  let score_per_day = doc["score_per_day"];
+  let score_per_month = doc["score_per_month"];
+
+  if(day==0){
+    score_per_day = new Array(7).fill(0)
   }
-  if(score<0)score=0
+  if(month==0){
+    score_per_day = new Array(12).fill(0)
+  }
+  if (human_win == "true") {
+    no_of_games = no_of_games + 1;
+    score = score + 10;
+    win = win + 1;
+    score_per_day[day] = score_per_day[day] + 1;
+    score_per_month[month] = score_per_month[month] + 1;
+  } else if (human_win == "false") {
+    no_of_games = no_of_games + 1;
+    score = score - 10;
+    score_per_day[day] = score_per_day[day] + 1;
+    score_per_month[month] = score_per_month[month] + 1;
+  }
+  if (score < 0) score = 0;
   // Document changed in MongoDB, but not in Mongoose
-  await User.updateOne(filter, { score: score });
+  await User.updateOne(filter, {
+    no_of_games: no_of_games,
+    wins: wins,
+    score: score,
+    score_per_day: score_per_day,
+    score_per_month: score_per_month,
+  });
 
   // This will update `doc` age to `59`, even though the doc changed.
   //doc.age = 59;

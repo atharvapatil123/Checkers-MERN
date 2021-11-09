@@ -27,36 +27,62 @@
     </div>
 
     <div class="container">
-      <div class="row row-cols-2" style="margin-bottom: 50px;">
-        <div class="div1" style="margin-top: 100px; padding-left:200px">
+      <div class="row row-cols-2" style="margin-bottom: 50px">
+        <% if(data[0].no_of_games==0){%>
+        <div
+          class="card text-dark mb-3"
+          style="
+            max-width: 28rem;
+            background-color: #e6e6fa;
+            margin-top: 140px;
+            max-height: 28rem;
+          "
+        >
+          <div class="card-header" style="margin: auto">
+            You have not played any game.
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text" style="display: flex">
+              <button
+                type="button"
+                class="btn btn-lg btn-light"
+                data-bs-toggle="popover"
+                title="Popover title"
+                data-bs-content="And here's some amazing content. It's very engaging. Right?"
+                onclick="move()"
+                style="margin: auto; color: white; background-color: #614fc7"
+              >
+                Click to play one!
+              </button>
+            </p>
+          </div>
+        </div>
+        <%}else{%>
+        <div class="div1" style="margin-top: 100px; padding-left: 200px">
           <span><b>Name :</b> <span> <%=data[0].name%></span></span>
-          <br>
+          <br />
           <span><b>Email :</b> <span> <%=data[0].email%></span></span>
-          <br>
+          <br />
           <span><b>Highest Score : </b> <span><%= data[0].score%></span></span>
-          <br>
+          <br />
           <span
-          ><b>Total games played : </b>
-          <span><%= data[0].no_of_games%></span></span
+            ><b>Total games played : </b>
+            <span id="no_of_games"><%= data[0].no_of_games%></span></span
           >
-          <br>
+          <br />
           <span><b>Wins : </b> <span id="wins"><%= data[0].wins%></span></span>
-          <br>
+          <br />
           <span>
             <b>Losses : </b>
             <span><%= data[0].no_of_games - data[0].wins %></span>
           </span>
-          <br>
+          <br />
           <span>
             <b>Accuracy : </b>
             <span><%=data[0].wins / data[0].no_of_games *100 %></span>
           </span>
-          <br>
-          <span
-          ><b>Best Win Time :</b>
-          <span><%= data[0].best_win_time%></span></span
-          >
-          <br>
+          <br />
         </div>
         <div class="div2" style="margin-left: -18px">
           <span id="piechart" style="margin: auto; margin-left: 100px"></span>
@@ -69,6 +95,7 @@
           id="myChart2"
           style="isolation: isolate; max-width: 600px"
         ></canvas>
+        <%}%>
       </div>
     </div>
     <!-- <div class="col"> -->
@@ -95,7 +122,11 @@
         var dataPie = google.visualization.arrayToDataTable([
           ["Task", "Hours per Day"],
           ["Win", parseInt(document.getElementById("wins").innerHTML)],
-          ["Lose", 5],
+          [
+            "Lose",
+            parseInt(document.getElementById("no_of_games").innerHTML) -
+              parseInt(document.getElementById("wins").innerHTML),
+          ],
         ]);
 
         // Optional; add a title and set the width and height of the chart
@@ -223,7 +254,11 @@
         font-size: 18px;
         fill: rgb(100, 201, 41);
       }
-
     </style>
+    <script>
+      function move() {
+        window.location.href = "http://localhost:5000/dashboard";
+      }
+    </script>
   </body>
 </html>

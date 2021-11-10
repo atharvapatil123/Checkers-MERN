@@ -41,6 +41,7 @@
     >
       <form action="/dashboard" method="POST">
         <input name="human_win" id="human_win" style="display: none" />
+        <input name="m_m" id="m_m" style="display: none" />
         <input
           name="email"
           id="email"
@@ -53,9 +54,8 @@
             padding: 5px 15px;
             background-color: #614fc7;
           "
-          type="submit"
+          type="button"
           class="btn btn-success"
-          id="submit_button"
           onclick="window.location.reload()"
         >
           <a
@@ -64,8 +64,31 @@
               font-size: 20px;
               text-decoration: none;
             "
+            href="#defaultCanvas0"
             >New Game</a
           >
+        </button>
+        <button
+          style="
+            font-family: courgette;
+            padding: 5px 15px;
+            background-color: #614fc7;
+            font-size: 20px;
+            text-decoration: none;
+          "
+          type="submit"
+          class="btn btn-success"
+          id="submit_button"
+        >
+          <a
+            style="
+              color: rgb(255, 255, 255);
+              font-size: 20px;
+              text-decoration: none;
+            "
+          >
+            Check score
+          </a>
         </button>
         <button
           style="
@@ -109,6 +132,10 @@
     <script>
       // User module
       let ct = true;
+      let m_m = document.getElementById("m_m");
+      m_m.value = 0;
+      m_m.innerHTML = 0;
+
       function change() {
         if (ct) {
           ct = false;
@@ -196,7 +223,6 @@
       let whitePlayer = { ai: false };
       let blackPlayer = { ai: true };
 
-      var temp_moves = 1;
       document.getElementById("human_win").innerHTML = "none";
       document.getElementById("human_win").value = undefined;
 
@@ -260,7 +286,7 @@
       function drawWhitePieces() {
         for (const piece of whitePieces) {
           stroke(0);
-          if (ct) fill(255, 0, 0);
+          if (ct) fill(230, 0, 0);
           else fill(255);
           drawPiece(piece);
         }
@@ -299,7 +325,7 @@
             hasPiece(selectX, selectY) &&
             whiteToMove === isWhite(selectX, selectY)
           ) {
-            if(ct)fill(0, 155, 0);
+            if (ct) fill(204, 204, 0);
             else fill(247, 191, 51);
             rect(
               selectX * SQUARE_WIDTH,
@@ -310,7 +336,7 @@
           }
 
           noFill();
-          if(ct)stroke(0, 0, 0);
+          if (ct) stroke(255, 255, 255);
           else stroke(0, 255, 0);
           if (whiteToMove && !whitePlayer.ai) {
             for (const piece of whitePieces) {
@@ -345,7 +371,7 @@
           whiteToMove === isWhite(selectX, selectY)
         ) {
           let moves = getMoves(selectX, selectY);
-          if(ct) fill(0, 0, 0, 200);
+          if (ct) fill(255, 255, 0, 200);
           else fill(247, 191, 51, 200);
           for (const move of moves) {
             ellipse(
@@ -363,7 +389,7 @@
         let whiteFirst = true;
         for (let i = 0; i < 8; i++) {
           for (let j = 0; j < 8; j++) {
-            if(ct)whiteFirst ? fill(153, 51, 255) : fill(255, 255, 0);
+            if (ct) whiteFirst ? fill(214, 214, 194) : fill(0, 0, 0);
             else whiteFirst ? fill(207, 167, 110) : fill(102, 62, 15);
             whiteFirst = !whiteFirst;
             rect(
@@ -699,7 +725,11 @@
       }
 
       function performMove(move) {
-        if (whiteToMove) temp_moves++;
+        if (whiteToMove) {
+          m_m.value = parseInt(m_m.value) + 1;
+          m_m.innerHTML = parseInt(m_m.innerHTML) + 1;
+          console.log(m_m.value, "innerHtml: ", m_m.innerHTML);
+        }
         performingMove = true;
         let piece = getPiece(move.fromX, move.fromY);
         let start = Date.now();

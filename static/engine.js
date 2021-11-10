@@ -22,7 +22,7 @@ const positionValuesBlack = [
     [5, 0, 5, 0, 5, 0, 5, 0]
 ];
 
-let maxDepth = 10;
+let maxDepth = 6;
 let thinking = false;
 let skipTurn = false;
 let tt = {"table": new Map(), "EXACT": 1, "LOWERBOUND": 2, "UPPERBOUND": 3};

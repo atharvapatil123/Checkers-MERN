@@ -43,6 +43,10 @@ const UserSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  min_moves: {
+    type: Number,
+    default:1000
+  }
 });
 
 const User = mongoose.model("User", UserSchema);

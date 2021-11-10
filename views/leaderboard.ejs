@@ -31,6 +31,7 @@
             <th>#</th>
             <th>Name</th>
             <th>Score</th>
+            <th>Best Win Moves</th>
           </tr>
         </thead>
         <tbody>
@@ -41,6 +42,7 @@
             <td class="rowfont"><%= (k) %></td>
             <td class="rowfont"><%= data[i].name%></td>
             <td class="rowfont"><%= data[i].score%></td>
+            <td class="rowfont"><%= data[i].min_moves%></td>
             <%j-- %><%k++}%>
           </tr>
           <% } }else{ %>

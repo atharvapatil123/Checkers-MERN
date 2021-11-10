@@ -53,31 +53,35 @@ router.post("/dashboard", async (req, res, next) => {
   let day = d.getDay() - 1;
   let month = d.getMonth();
 
-  const { human_win, email } = req.body;
+  const { human_win, email, m_m } = req.body;
   const filter = { email: email };
   let doc = await User.findOne(filter);
+
+  let mm = parseInt(m_m);
 
   let score = doc["score"];
   let wins = doc["wins"];
   let no_of_games = doc["no_of_games"];
   let score_per_day = doc["score_per_day"];
   let score_per_month = doc["score_per_month"];
+  let min_moves = doc["min_moves"];
 
-  if(day==0){
-    score_per_day = new Array(7).fill(0)
+  if (day == 0) {
+    score_per_day = new Array(7).fill(0);
   }
-  if(month==0){
-    score_per_day = new Array(12).fill(0)
+  if (month == 0) {
+    score_per_day = new Array(12).fill(0);
   }
   if (human_win == "true") {
+    if (min_moves > mm) min_moves = mm;
     no_of_games = no_of_games + 1;
     score = score + 10;
-    win = win + 1;
+    wins = wins + 1;
     score_per_day[day] = score_per_day[day] + 1;
     score_per_month[month] = score_per_month[month] + 1;
   } else if (human_win == "false") {
     no_of_games = no_of_games + 1;
-    score = score - 10;
+    score = score - 5;
     score_per_day[day] = score_per_day[day] + 1;
     score_per_month[month] = score_per_month[month] + 1;
   }
@@ -89,13 +93,14 @@ router.post("/dashboard", async (req, res, next) => {
     score: score,
     score_per_day: score_per_day,
     score_per_month: score_per_month,
+    min_moves: min_moves,
   });
 
   // This will update `doc` age to `59`, even though the doc changed.
   //doc.age = 59;
   await doc.save();
-  console.log(human_win, email, score);
-  res.redirect("dashboard");
+  console.log(human_win, email, score, mm, "Type", typeof mm, min_moves);
+  res.redirect("leaderboard");
 });
 
 //about page

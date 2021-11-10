@@ -80,6 +80,8 @@ router.post("/dashboard", async (req, res, next) => {
     score_per_day[day] = score_per_day[day] + 1;
     score_per_month[month] = score_per_month[month] + 1;
   } else if (human_win == "false") {
+    if (min_moves > mm) min_moves = mm;
+
     no_of_games = no_of_games + 1;
     score = score - 5;
     score_per_day[day] = score_per_day[day] + 1;

@@ -106,7 +106,7 @@
         >
           Change Theme
         </button>
-        <div class="dropdown" style="display: initial">
+        <div class="dropdown"  style="display: initial">
           <button
             class="btn btn-secondary dropdown-toggle"
             type="button"
@@ -1040,23 +1040,28 @@
       let d = document.getElementById("difficult");
       let ex = document.getElementById("expert");
       let dropdownMenuButton1 = document.getElementById("dropdownMenuButton1");
+      let lvl = document.getElementById("lvl");
 
       let maxDepth 
 
       function easy() {
         maxDepth = 2;
+        dropdownMenuButton1.innerHTML="Easy";
         console.log("easy", maxDepth);
       }
       function moderate() {
         maxDepth = 6;
+        dropdownMenuButton1.innerHTML="Moderate";
         console.log("moderate", maxDepth);
       }
       function difficult() {
         maxDepth = 10;
+        dropdownMenuButton1.innerHTML="Difficult";
         console.log("difficult", maxDepth);
       }
       function expert() {
         maxDepth = 11;
+        dropdownMenuButton1.innerHTML="Expert";
         console.log("expert", maxDepth);
       }
 

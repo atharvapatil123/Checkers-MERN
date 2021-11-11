@@ -70,8 +70,8 @@ function makeBestMove() {
       }
       performMove(bestMove);
       //debug log - score +  cut-offs
-      console.log("cutoffs: " + num_cutoffs);
-      console.log("score: " + bestMove.score.toFixed(1));
+      // console.log("cutoffs: " + num_cutoffs);
+      // console.log("score: " + bestMove.score.toFixed(1));
     }
   }
   thinking = false;

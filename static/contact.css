@@ -1,5 +1,4 @@
 * {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   box-sizing: border-box;
   margin: 0px;
 }
@@ -90,6 +89,7 @@ option {
   color: black;
   font-size: 20px;
   background-color: rgb(211, 255, 240);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 /* input:focus{
     background-color: blue;
@@ -108,8 +108,11 @@ select:hover {
   outline: none;
   background: none;
 }
-textarea{
-    height: 100px;
+p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+textarea {
+  height: 100px;
 }
 form:hover {
   /* background-color: aqua; */
@@ -120,16 +123,16 @@ form:hover {
 .btn {
   margin: 4px auto;
   width: 100px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   padding: 8px 5px;
-  background-color: aqua;
+  /* background-color: aqua; */
   border-radius: 5px;
   font-size: large;
   font-weight: 900;
   cursor: pointer;
 }
 .btn:hover {
-  background-color: yellow;
+  /* background-color: yellow; */
   color: black;
 }
 

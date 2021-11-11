@@ -57,7 +57,11 @@
               autocomplete="off"
             ></textarea>
 
-            <button class="btn" onclick="return validation()" id="submit">
+            <button
+              class="btn btn-warning"
+              onclick="return validation()"
+              id="submit"
+            >
               Submit
             </button>
           </form>
@@ -81,20 +85,18 @@
       //if(inputText.value.match(mailformat))
       function validation() {
         if (names.value == "") {
-          alert("Enter full name");
+          alert("Please enter your name");
           names.focus();
           return false;
         } else if (email.value == "") {
-          alert("Enter your Email");
+          alert("Please enter your Email");
           email.focus();
           return false;
         } else if (address.value == "") {
-          alert("Enter your address");
+          alert("Please enter your suggestion/feedback");
           address.focus();
           return false;
-        } else if (
-          !email.value.match(mailformat)
-        ) {
+        } else if (!email.value.match(mailformat)) {
           alert("Enter your Email properly");
           email.focus();
           return false;
@@ -122,5 +124,10 @@
         f.style.borderColor = "black";
       });
     </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

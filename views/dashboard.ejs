@@ -106,7 +106,7 @@
         >
           Change Theme
         </button>
-        <div class="dropdown"  style="display: initial">
+        <div class="dropdown" style="display: initial">
           <button
             class="btn btn-secondary dropdown-toggle"
             type="button"
@@ -120,11 +120,15 @@
               text-decoration: none;
             "
           >
-            Dropdown button
+            Easy
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li>
-              <a class="dropdown-item" href="#" id="easy" onclick="easy()"
+            <li selected>
+              <a
+                class="dropdown-item active"
+                href="#"
+                id="easy"
+                onclick="easy()"
                 >Easy</a
               >
             </li>
@@ -1042,21 +1046,21 @@
       let dropdownMenuButton1 = document.getElementById("dropdownMenuButton1");
       let lvl = document.getElementById("lvl");
 
-      let maxDepth 
+      let maxDepth = 2;
 
       function easy() {
         maxDepth = 2;
-        dropdownMenuButton1.innerHTML="Easy";
+        dropdownMenuButton1.innerHTML = "Easy";
         console.log("easy", maxDepth);
       }
       function moderate() {
         maxDepth = 6;
-        dropdownMenuButton1.innerHTML="Moderate";
+        dropdownMenuButton1.innerHTML = "Moderate";
         console.log("moderate", maxDepth);
       }
       function difficult() {
         maxDepth = 10;
-        dropdownMenuButton1.innerHTML="Difficult";
+        dropdownMenuButton1.innerHTML = "Difficult";
         console.log("difficult", maxDepth);
       }
       // function expert() {

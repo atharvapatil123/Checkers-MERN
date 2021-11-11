@@ -146,11 +146,11 @@
                 >Difficult</a
               >
             </li>
-            <li>
+            <!-- <li>
               <a class="dropdown-item" href="#" id="expert" onclick="expert()"
                 >Expert</a
               >
-            </li>
+            </li> -->
           </ul>
         </div>
       </form>
@@ -1038,7 +1038,7 @@
       let e = document.getElementById("easy");
       let m = document.getElementById("moderate");
       let d = document.getElementById("difficult");
-      let ex = document.getElementById("expert");
+      // let ex = document.getElementById("expert");
       let dropdownMenuButton1 = document.getElementById("dropdownMenuButton1");
       let lvl = document.getElementById("lvl");
 
@@ -1059,11 +1059,11 @@
         dropdownMenuButton1.innerHTML="Difficult";
         console.log("difficult", maxDepth);
       }
-      function expert() {
-        maxDepth = 11;
-        dropdownMenuButton1.innerHTML="Expert";
-        console.log("expert", maxDepth);
-      }
+      // function expert() {
+      //   maxDepth = 11;
+      //   dropdownMenuButton1.innerHTML="Expert";
+      //   console.log("expert", maxDepth);
+      // }
 
       let thinking = false;
       let skipTurn = false;

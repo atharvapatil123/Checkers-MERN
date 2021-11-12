@@ -277,6 +277,21 @@ function evaluate() {
   return color * (whiteScore - blackScore);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Transposition Table Helper Functions
 function getTransposition() {
   return tt.table.get(zobristHash);

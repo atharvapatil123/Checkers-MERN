@@ -73,43 +73,43 @@ Integrating an AI agent whom the users will be playing against.
 
 <h3>1. login/Register Page:</h3>
 
-![GitHub Logo](/static/git_images/g1.png)
+![GitHub Logo](Base/static/git_images/g1.png)
 <br>
 <br>
-![GitHub Logo](/static/git_images/g2.png)
+![GitHub Logo](Base/static/git_images/g2.png)
 <br>
 <br>
-![GitHub Logo](/static/git_images/g3.png)
+![GitHub Logo](Base/static/git_images/g3.png)
 <br>
 <br>
 
 <h3>2. Home Page :</h3>
 
-![GitHub Logo](/static/git_images/g4.png)
+![GitHub Logo](Base/static/git_images/g4.png)
 <br>
 <br>
 
 <h3>3. Rules Page :</h3>
 
-![GitHub Logo](/static/git_images/g5.png)
+![GitHub Logo](Base/static/git_images/g5.png)
 <br>
 <br>
 
 <h3>4. Contact Page :</h3>
 
-![GitHub Logo](/static/git_images/g6.png)
+![GitHub Logo](Base/static/git_images/g6.png)
 <br>
 <br>
 
 <h3>5. Leaderboard Page :</h3>
 
-![GitHub Logo](/static/git_images/g7.png)
+![GitHub Logo](Base/static/git_images/g7.png)
 <br>
 <br>
 
 <h3>6. Profile Page :</h3>
 
-![GitHub Logo](/static/git_images/g8.png)
+![GitHub Logo](Base/static/git_images/g8.png)
 <br>
 <br>
 
